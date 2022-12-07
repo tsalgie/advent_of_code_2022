@@ -1,6 +1,6 @@
 from typing import List
 
-def puzzle(calories: List[int], elf_count: int = 1):
+def puzzle(calories: List[int], elf_count: int = 1) -> int:
     return sum(sorted(calories)[-elf_count:])
 
 if __name__ == "__main__":

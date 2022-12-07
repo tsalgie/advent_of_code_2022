@@ -1,9 +1,9 @@
 from typing import List
 
-beat = {'X': 'C', 'Y': 'A', 'Z': 'B'}
 tie = {'A': 'X', 'B': 'Y', 'C': 'Z'}
 
-def puzzle1(matches: List[str]):
+def puzzle1(matches: List[str]) -> int:
+    beat = {'X': 'C', 'Y': 'A', 'Z': 'B'}
     scores = {'X': 1, 'Y': 2, 'Z': 3}    
     results = 0
 
@@ -16,11 +16,10 @@ def puzzle1(matches: List[str]):
 
         results += total + scores[match[1]]
 
-    return(results)
+    return results
 
-def puzzle2(matches: List[str]):
+def puzzle2(matches: List[str]) -> int:
     beat = {'C': 'X', 'A': 'Y', 'B': 'Z'}
-    tie = {'A': 'X', 'B': 'Y', 'C': 'Z'}
     lose = {'A': 'Z', 'B': 'X', 'C': 'Y'}
 
     matches_copy = []   
@@ -33,7 +32,7 @@ def puzzle2(matches: List[str]):
             match[1] = beat[match[0]]
         matches_copy.append(match)
 
-    return(puzzle1(matches_copy))
+    return puzzle1(matches_copy)
 
 if __name__ == "__main__":
     with open('input.txt') as f:
